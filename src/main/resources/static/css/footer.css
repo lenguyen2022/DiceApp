@@ -1,0 +1,15 @@
+footer {
+    font-size: 1.2em;
+    font-style: italic;
+    font-weight: bolder;
+    border-top: #78909c solid;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-top: 1.5em;
+    width: 22em;
+    color: #546e7a;
+}
+
+footer .hart {
+    color: #f513ee;
+}

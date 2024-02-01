@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
+    <title>HeaderAndFooter</title>
+</head>
+<body>
+<header th:fragment="Header">
+    <h1>Dice Roller</h1>
+</header>
+<main>
+    Some content in the main tag.
+</main>
+<footer th:fragment="Footer">
+    Sheridan College&nbsp;&nbsp;
+    <span class='hart'>&#9825;</span>&nbsp;&nbsp;
+    <span th:text="${#dates.createNow()}">March 15, 2023</span>
+    <span id="footer-copyright" style="font-size:10pt;">Copyright &copy; Le Nguyen</span>
+</footer>
+</body>
+</html>

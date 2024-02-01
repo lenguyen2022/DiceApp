@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/main.css" th:href="@{css/main.css}">
+    <link rel="stylesheet" href="../static/css/header.css" th:href="@{css/header.css}">
+    <link rel="stylesheet" href="../static/css/footer.css" th:href="@{css/footer.css}">
+    <title>Dice Roller</title>
+</head>
+<body>
+<header th:replace="~{HeaderAndFooter::Header}">
+    <h1>Some header text</h1>
+</header>
+<main>
+    <p th:text="${#dates.createNow()}"></p>
+    <p></p>
+    <p>
+        <img th:each="value: ${diceRollDataList}"
+             th:src="@{|images/dice/side_${value}.png|}"
+             th:alt="'side ' + ${value}"
+             src="../static/images/dice/side_1.png" alt="side 1">
+    </p>
+    <p>
+        <span class="total_label">Total:</span>
+        <span th:text="${total}" class="total_number">6</span>
+    </p>
+    <h2>Roll the Dice</h2>
+    <form method="post" th:action="@{dice-game}">
+        <p>
+            <label for="c">Number of Dice:</label>
+            <select id="c" th:name="numberOfDice">
+                <option th:each="i : ${#numbers.sequence(1, 5)}"
+                        th:value="${i}"
+                        th:selected="${i==selectedDice}"
+                        th:text="${i}">
+                </option>
+            </select>
+        </p>
+        <p>
+            <input type="hidden" th:name="isRolled" value="true">
+            <input type="submit" value="Roll Dice">
+        </p>
+    </form>
+</main>
+<footer th:replace="~{HeaderAndFooter::footer}">
+    Some footer text
+</footer>
+</body>
+</html>
